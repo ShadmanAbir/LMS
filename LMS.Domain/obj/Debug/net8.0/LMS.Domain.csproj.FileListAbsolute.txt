@@ -1,0 +1,15 @@
+C:\Repo\LMS\LMS.Domain\bin\Debug\net8.0\LMS.Domain.deps.json
+C:\Repo\LMS\LMS.Domain\bin\Debug\net8.0\LMS.Domain.runtimeconfig.json
+C:\Repo\LMS\LMS.Domain\bin\Debug\net8.0\LMS.Domain.dll
+C:\Repo\LMS\LMS.Domain\bin\Debug\net8.0\LMS.Domain.pdb
+C:\Repo\LMS\LMS.Domain\obj\Debug\net8.0\LMS.Domain.csproj.AssemblyReference.cache
+C:\Repo\LMS\LMS.Domain\obj\Debug\net8.0\LMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repo\LMS\LMS.Domain\obj\Debug\net8.0\LMS.Domain.AssemblyInfoInputs.cache
+C:\Repo\LMS\LMS.Domain\obj\Debug\net8.0\LMS.Domain.AssemblyInfo.cs
+C:\Repo\LMS\LMS.Domain\obj\Debug\net8.0\LMS.Domain.csproj.CoreCompileInputs.cache
+C:\Repo\LMS\LMS.Domain\obj\Debug\net8.0\LMS.Domain.sourcelink.json
+C:\Repo\LMS\LMS.Domain\obj\Debug\net8.0\LMS.Domain.dll
+C:\Repo\LMS\LMS.Domain\obj\Debug\net8.0\refint\LMS.Domain.dll
+C:\Repo\LMS\LMS.Domain\obj\Debug\net8.0\LMS.Domain.pdb
+C:\Repo\LMS\LMS.Domain\obj\Debug\net8.0\LMS.Domain.genruntimeconfig.cache
+C:\Repo\LMS\LMS.Domain\obj\Debug\net8.0\ref\LMS.Domain.dll
