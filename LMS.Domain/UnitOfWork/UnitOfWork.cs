@@ -44,18 +44,18 @@ namespace LMS.Domain.UnitOfWork
 
 
 
-        /*private GenericRepository<Product> productRepository;
-        public GenericRepository<Product> ProductRepository
+        private GenericRepository<Authors> authorRepository;
+        public GenericRepository<Authors> AuthorRepository
         {
             get
             {
 
-                if (this.productRepository == null)
+                if (this.authorRepository == null)
                 {
-                    this.productRepository = new GenericRepository<Product>(_context);
+                    this.authorRepository = new GenericRepository<Authors>(_context);
                 }
-                return productRepository;
+                return authorRepository;
             }
-        }*/
+        }
     }
 }
