@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace LMS.Domain.Models
 {
-    public class LMSCopntext : IdentityDbContext
+    public class LMSContext : IdentityDbContext
     {
-        public LMSCopntext(DbContextOptions options) : base(options)
+        public LMSContext(DbContextOptions options) : base(options)
         {
         }
 
