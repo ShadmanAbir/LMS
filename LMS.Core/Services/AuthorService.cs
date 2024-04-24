@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using LMS.API.ViewModels;
 using LMS.Core.Interfaces;
+using LMS.Core.ViewModels;
 using LMS.Domain.Models;
 using LMS.Domain.UnitOfWork;
 using System;
@@ -54,6 +54,8 @@ namespace LMS.Core.Services
         public int Update(AuthorsViewModel authorVM)
         {
             var Author = _unitOfWork.AuthorRepository.GetByID(authorVM.AuthorID);
+            if (Author == null)
+                throw new Exception("Author Not Found");
             Author.AuthorBio = authorVM.AuthorBio;
             Author.AuthorName = authorVM.AuthorName;
             _unitOfWork.AuthorRepository.Update(Author);

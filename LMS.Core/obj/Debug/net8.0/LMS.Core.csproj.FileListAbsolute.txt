@@ -1,0 +1,16 @@
+C:\Repo\LMS\LMS.Core\bin\Debug\net8.0\LMS.Core.deps.json
+C:\Repo\LMS\LMS.Core\bin\Debug\net8.0\LMS.Core.dll
+C:\Repo\LMS\LMS.Core\bin\Debug\net8.0\LMS.Core.pdb
+C:\Repo\LMS\LMS.Core\bin\Debug\net8.0\LMS.Domain.dll
+C:\Repo\LMS\LMS.Core\bin\Debug\net8.0\LMS.Domain.pdb
+C:\Repo\LMS\LMS.Core\obj\Debug\net8.0\LMS.Core.csproj.AssemblyReference.cache
+C:\Repo\LMS\LMS.Core\obj\Debug\net8.0\LMS.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repo\LMS\LMS.Core\obj\Debug\net8.0\LMS.Core.AssemblyInfoInputs.cache
+C:\Repo\LMS\LMS.Core\obj\Debug\net8.0\LMS.Core.AssemblyInfo.cs
+C:\Repo\LMS\LMS.Core\obj\Debug\net8.0\LMS.Core.csproj.CoreCompileInputs.cache
+C:\Repo\LMS\LMS.Core\obj\Debug\net8.0\LMS.Core.sourcelink.json
+C:\Repo\LMS\LMS.Core\obj\Debug\net8.0\LMS.Core.csproj.Up2Date
+C:\Repo\LMS\LMS.Core\obj\Debug\net8.0\LMS.Core.dll
+C:\Repo\LMS\LMS.Core\obj\Debug\net8.0\refint\LMS.Core.dll
+C:\Repo\LMS\LMS.Core\obj\Debug\net8.0\LMS.Core.pdb
+C:\Repo\LMS\LMS.Core\obj\Debug\net8.0\ref\LMS.Core.dll

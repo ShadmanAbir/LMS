@@ -1,4 +1,4 @@
-﻿using LMS.API.ViewModels;
+﻿using LMS.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

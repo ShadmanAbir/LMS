@@ -9,6 +9,7 @@
       "LMS.API/1.0.0": {
         "dependencies": {
           "AutoMapper": "13.0.1",
+          "LMS.Core": "1.0.0",
           "LMS.Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.Negotiate": "8.0.2",
           "Microsoft.EntityFrameworkCore.Design": "8.0.4",
@@ -1036,6 +1037,15 @@
           }
         }
       },
+      "LMS.Core/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "LMS.Domain": "1.0.0"
+        },
+        "runtime": {
+          "LMS.Core.dll": {}
+        }
+      },
       "LMS.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.4",
@@ -1690,6 +1700,11 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "LMS.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "LMS.Domain/1.0.0": {
       "type": "project",

@@ -1,5 +1,8 @@
-using LMS.API.Helper;
+using LMS.Core.Helper;
+using LMS.Core.Interfaces;
+using LMS.Core.Services;
 using LMS.Domain.Models;
+using LMS.Domain.UnitOfWork;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +14,8 @@ builder.Services.AddDbContext<LMSContext>(options =>
   options.UseSqlServer(builder.Configuration.GetConnectionString("LMSContext")));
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(typeof(MapperProfile));
+builder.Services.AddScoped<UnitOfWork>();
+builder.Services.AddTransient<IAuthorService, AuthorService>();
 
 
 

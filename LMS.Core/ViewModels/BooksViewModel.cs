@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LMS.API.ViewModels
+namespace LMS.Core.ViewModels
 {
     public class BooksViewModel
     {
