@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xz2kHOcx/pqqbZfBFPEUuMPJRe2y+s/jMiIdAUadbwP501bFsxCiMDrQV7nFKoOPEvx+pF/oe3/zPou7c4j9mw==",
+  "dgSpecHash": "tkcfbHzMNJAAgIW7EiNHDP/lSloSV89RlkS96BVYoV1OdlSZmZVb7K4Wa0Ypl+0MqjDgf2oFAYPkfNWVqktLOQ==",
   "success": true,
   "projectFilePath": "C:\\Repo\\LMS\\LMS.API\\LMS.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
