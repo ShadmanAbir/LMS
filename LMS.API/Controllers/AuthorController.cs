@@ -19,7 +19,7 @@ namespace LMS.API.Controllers
         public async Task<ActionResult<IEnumerable<AuthorsViewModel>>> Get()
         {
             var data = _authorService.Get();
-            return data;
+            return Ok(data);
         }
 
         // GET api/<AuthorController>/5
@@ -27,7 +27,7 @@ namespace LMS.API.Controllers
         public async Task<ActionResult<AuthorsViewModel>> Get(int id)
         {
             var data = _authorService.GetByID(id);
-            return data;
+            return Ok(data);
         }
 
         // POST api/<AuthorController>
@@ -35,7 +35,7 @@ namespace LMS.API.Controllers
         public async Task<ActionResult<int>> Post(AuthorsViewModel authorsVM)
         {
             var data = _authorService.Add(authorsVM);
-            return data;
+            return Ok(data);
         }
 
         // PUT api/<AuthorController>/5
@@ -43,7 +43,7 @@ namespace LMS.API.Controllers
         public async Task<ActionResult<int>> Put(AuthorsViewModel authorsVM)
         {
             var data = _authorService.Update(authorsVM);
-            return data;
+            return Ok(data);
         }
 
         // DELETE api/<AuthorController>/5
@@ -51,7 +51,7 @@ namespace LMS.API.Controllers
         public async Task<ActionResult<int>> Delete(int id)
         {
             var data = _authorService.Delete(id);
-            return data;
+            return Ok(data);
         }
     }
 }
