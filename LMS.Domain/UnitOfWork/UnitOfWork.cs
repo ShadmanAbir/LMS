@@ -71,5 +71,19 @@ namespace LMS.Domain.UnitOfWork
                 return bookRepository;
             }
         }
+
+        private GenericRepository<Members> memberRepository;
+        public GenericRepository<Members> MemberRepository
+        {
+            get
+            {
+
+                if (this.memberRepository == null)
+                {
+                    this.memberRepository = new GenericRepository<Members>(_context);
+                }
+                return memberRepository;
+            }
+        }
     }
 }

@@ -32,14 +32,14 @@ namespace LMS.Core.Services
 
         public int Delete(int ID)
         {
-            var Author = _unitOfWork.AuthorRepository.GetByID(ID);
-            _unitOfWork.AuthorRepository.Delete(Author);
+            var Book = _unitOfWork.BookRepository.GetByID(ID);
+            _unitOfWork.BookRepository.Delete(Book);
             return _unitOfWork.Save();
         }
 
         public List<BooksViewModel> Get()
         {
-            var Books = _unitOfWork.AuthorRepository.Get();
+            var Books = _unitOfWork.BookRepository.Get();
             var result = _mapper.ProjectTo<BooksViewModel>(Books).ToList();
             return result;
         }

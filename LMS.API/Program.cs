@@ -17,6 +17,7 @@ builder.Services.AddAutoMapper(typeof(MapperProfile));
 builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddTransient<IAuthorService, AuthorService>();
 builder.Services.AddTransient<IBookService, BookService>();
+builder.Services.AddTransient<IMemberService, MemberService>();
 
 
 
