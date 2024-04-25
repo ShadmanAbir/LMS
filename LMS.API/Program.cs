@@ -18,6 +18,7 @@ builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddTransient<IAuthorService, AuthorService>();
 builder.Services.AddTransient<IBookService, BookService>();
 builder.Services.AddTransient<IMemberService, MemberService>();
+builder.Services.AddTransient<IBorrowedBookService, BorrowedBookService>();
 
 
 

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LMS.Core.ViewModels
+namespace LMS.Domain.Models
 {
-    public class BorrowdBooksViewModel
+    public class BorrowedBooks
     {
         [Key]
         public int BorrowID { get; set; }

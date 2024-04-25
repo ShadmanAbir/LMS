@@ -11,6 +11,7 @@ namespace LMS.Core.Helper
             CreateMap<Authors, AuthorsViewModel>().ReverseMap();
             CreateMap<Books, BooksViewModel>().ReverseMap();
             CreateMap<Members, MembersViewModel>().ReverseMap();
+            CreateMap<BorrowedBooks, BorrowedBooksViewModel>().ReverseMap();
         }
     }
 }
