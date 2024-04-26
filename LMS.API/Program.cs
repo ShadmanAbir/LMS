@@ -12,6 +12,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<LMSContext>(options =>
   options.UseSqlServer(builder.Configuration.GetConnectionString("LMSContext")));
+
+builder.Services.AddCors(options =>
+ {
+     options.AddDefaultPolicy(builder =>
+     {
+         builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+     });
+ });
+
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(typeof(MapperProfile));
 builder.Services.AddScoped<UnitOfWork>();
@@ -26,14 +37,14 @@ builder.Services.AddTransient<IBorrowedBookService, BorrowedBookService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
+/*builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
    .AddNegotiate();
 
 builder.Services.AddAuthorization(options =>
 {
     // By default, all incoming requests will be authorized according to the default policy.
     options.FallbackPolicy = options.DefaultPolicy;
-});
+});*/
 
 var app = builder.Build();
 
@@ -44,9 +55,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
 app.MapControllers();
 
