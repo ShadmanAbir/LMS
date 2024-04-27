@@ -9,167 +9,84 @@ using LMS.WebClient.Models;
 using LMS.Domain.Models;
 using Newtonsoft.Json;
 using LMS.Core.ViewModels;
+using LMS.WebClient.Helper;
 
 namespace LMS.WebClient.Controllers
 {
     public class AuthorsController : Controller
     {
-        private readonly HttpClient _httpClient;
-        public AuthorsController(HttpClient httpClient)
+        private readonly LMSHttpClient _httpClient;
+        public AuthorsController(LMSHttpClient httpClient)
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
         }
 
-        // GET: Authors
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var apiUrl = "https://localhost:7080/api/Author";
-
-            // Send GET request to the API endpoint
-            var response = await _httpClient.GetAsync(apiUrl);
-
-            // Check if the response is successful
-            response.EnsureSuccessStatusCode();
-
-            // Read response content as string
-            var responseData = await response.Content.ReadAsStringAsync();
-            var myApiData = JsonConvert.DeserializeObject<AuthorsViewModel>(responseData);
-            return View();
+            return View(await _httpClient.GetAuthors());
         }
 
-        // GET: Authors/Details/5
+        
         public async Task<IActionResult> Details(int? id)
         {
-            /*if (id == null)
-            {
-                return NotFound();
-            }
-
-            var authors = await _context.Authors
-                .FirstOrDefaultAsync(m => m.AuthorID == id);
-            if (authors == null)
-            {
-                return NotFound();
-            }
-
-            return View(authors);*/
-            return View();
+            return View(await _httpClient.GetAuthorByID(id ?? 0));
         }
 
-        // GET: Authors/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Authors/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AuthorID,AuthorName,AuthorBio")] Authors authors)
+        public async Task<IActionResult> Create([Bind("AuthorID,AuthorName,AuthorBio")] AuthorsViewModel authorVM)
         {
-            /*            if (ModelState.IsValid)
-                        {
-                            _context.Add(authors);
-                            await _context.SaveChangesAsync();
-                            return RedirectToAction(nameof(Index));
-                        }
-                        return View(authors);*/
-            return View();
-            
-        }
-
-        // GET: Authors/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            /*            if (id == null)
-                        {
-                            return NotFound();
-                        }
-
-                        var authors = await _context.Authors.FindAsync(id);
-                        if (authors == null)
-                        {
-                            return NotFound();
-                        }
-                        return View(authors);*/
-            return View();
-        }
-
-        // POST: Authors/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AuthorID,AuthorName,AuthorBio")] Authors authors)
-        {
-            /*if (id != authors.AuthorID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(authors);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AuthorsExists(authors.AuthorID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(authors);*/
-            return View();
-        }
-
-        // GET: Authors/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            /*if (id == null)
-            {
-                return NotFound();
-            }
-
-            var authors = await _context.Authors
-                .FirstOrDefaultAsync(m => m.AuthorID == id);
-            if (authors == null)
-            {
-                return NotFound();
-            }
-
-            return View(authors);*/
-            return View();
-        }
-
-        // POST: Authors/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            /*var authors = await _context.Authors.FindAsync(id);
-            if (authors != null)
-            {
-                _context.Authors.Remove(authors);
-            }
-
-            await _context.SaveChangesAsync();*/
+            await _httpClient.PostAuthorAsync(authorVM);
             return RedirectToAction(nameof(Index));
         }
 
-        /*private bool AuthorsExists(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            return _context.Authors.Any(e => e.AuthorID == id);
-        }*/
+            return View(await _httpClient.GetAuthorByID(id ?? 0));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id,[Bind("AuthorID,AuthorName,AuthorBio")] AuthorsViewModel authorVM)
+        {
+            await _httpClient.PuttAuthorAsync(authorVM);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var author = await _httpClient.GetAuthorByID(id ?? 0);
+            if (author == null)
+            {
+                return NotFound();
+            }
+
+            return View(author);
+        }
+
+        // POST: Authors/Delete/5
+        [HttpDelete, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var authors = await _httpClient.GetAuthorByID(id);
+            if (authors != null)
+            {
+                await _httpClient.DeleteAuthorAsync(id);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
