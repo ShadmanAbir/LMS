@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LMS.Core;
 using LMS.Core.ViewModels;
+using LMS.Domain.Models;
 using Newtonsoft.Json;
 
 namespace LMS.DesktopClient
@@ -183,6 +184,57 @@ namespace LMS.DesktopClient
 
         }
 
-       
+        private async void SaveAuthor_btn_Click(object sender, RoutedEventArgs e)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    var Authordata = new AuthorsViewModel
+                    {
+                        AuthorID = _authorID,
+                        AuthorName = AuthorName_txt.Text,
+                        AuthorBio = AuthorBio_txt.Text
+                    };
+
+                    string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(Authordata);
+
+                    var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+
+                    if (_authorID == 0)
+                    {
+                        HttpResponseMessage response = await client.PostAsync(Url + "Author", content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            Console.WriteLine("PUT request successful");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Failed to send PUT request. Status Code: {response.StatusCode}");
+                        }
+                    }
+                    else
+                    {
+                        HttpResponseMessage response = await client.PutAsync(Url + "Author", content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            Console.WriteLine("PUT request successful");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Failed to send PUT request. Status Code: {response.StatusCode}");
+                        }
+                    }
+                    _authorID = 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
+        }
     }
 }
