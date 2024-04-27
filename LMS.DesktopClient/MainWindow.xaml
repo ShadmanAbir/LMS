@@ -25,17 +25,64 @@
                     <Label Content="Author Bio" HorizontalAlignment="Left" Margin="23,106,0,0" VerticalAlignment="Top" Height="36" Width="133"/>
                     <DataGrid x:Name="Author_dtg" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="23,203,117,75">
                         <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="SL"/>
-                            <DataGridTextColumn x:Name="AuthorName"/>
-                            <DataGridTextColumn x:Name="AuthorBio"/>
+                            
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="UpdateAuthor_btn" Content="Update" HorizontalAlignment="Left" Margin="477,350,0,0" VerticalAlignment="Top" Height="36" Width="106"/>
-                    <Button x:Name="DeleteAuthor_btn" Content="Delete" HorizontalAlignment="Left" Margin="612,350,0,0" VerticalAlignment="Top" Height="36" Width="106"/>
+                    <Button x:Name="UpdateAuthor_btn" Content="Update" HorizontalAlignment="Left" Margin="477,350,0,0" VerticalAlignment="Top" Height="36" Width="106" Click="UpdateAuthor_btn_Click"/>
+                    <Button x:Name="DeleteAuthor_btn" Content="Delete" HorizontalAlignment="Left" Margin="612,350,0,0" VerticalAlignment="Top" Height="36" Width="106" Click="DeleteAuthor_btn_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Books" Margin="-2,-2,-2,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="391*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="BookTitle_txt" HorizontalAlignment="Left" Margin="189,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Height="22" Grid.Column="1"/>
+                    <TextBox x:Name="BookISBN_txt" HorizontalAlignment="Left" Margin="189,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Height="22" Grid.Column="1"/>
+                    <Button x:Name="SaveBook_btn" Content="Save" HorizontalAlignment="Left" Margin="499,104,0,0" VerticalAlignment="Top" Height="38" Width="127" Grid.Column="1"/>
+                    <Button x:Name="ClearBook_btn" Content="Clear" HorizontalAlignment="Left" Margin="651,104,0,0" VerticalAlignment="Top" Height="39" Width="109" Click="ClearAuthor_btn_Click" Grid.Column="1"/>
+                    <Label Content="Book Title" HorizontalAlignment="Left" Margin="11,45,0,0" VerticalAlignment="Top" Height="22" Width="130" Grid.Column="1"/>
+                    <Label Content="ISBN" HorizontalAlignment="Left" Margin="11,82,0,0" VerticalAlignment="Top" Height="22" Width="130" Grid.Column="1"/>
+                    <DataGrid x:Name="Book_dtg" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="11,203,117,75" Grid.Column="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="SL1"/>
+                            <DataGridTextColumn x:Name="AuthorName1"/>
+                            <DataGridTextColumn x:Name="AuthorBio1"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="UpdateBook_btn" Content="Update" HorizontalAlignment="Left" Margin="465,350,0,0" VerticalAlignment="Top" Height="36" Width="106" Grid.Column="1" Click="UpdateBook_btn_Click"/>
+                    <Button x:Name="DeleteBook_btn" Content="Delete" HorizontalAlignment="Left" Margin="600,350,0,0" VerticalAlignment="Top" Height="36" Width="106" Grid.Column="1"/>
+                    <Label Content="Publish Date" HorizontalAlignment="Left" Margin="11,113,0,0" VerticalAlignment="Top" Height="22" Width="130" Grid.Column="1"/>
+                    <Label Content="Author" HorizontalAlignment="Left" Margin="11,150,0,0" VerticalAlignment="Top" Height="22" Width="130" Grid.Column="1"/>
+                    <DatePicker x:Name="BookPublishDate_dp" Grid.Column="1" HorizontalAlignment="Left" Margin="189,113,0,0" VerticalAlignment="Top" Width="236"/>
+                    <ComboBox x:Name="BookAuthor_cb" Grid.Column="1" HorizontalAlignment="Left" Margin="189,150,0,0" VerticalAlignment="Top" Width="236" Height="22"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Member" Margin="-2,-2,-2,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="391*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="MemberFirstName_txt" HorizontalAlignment="Left" Margin="189,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Height="22" Grid.Column="1"/>
+                    <TextBox x:Name="MemberLastName_txt" HorizontalAlignment="Left" Margin="189,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Height="22" Grid.Column="1"/>
+                    <Button x:Name="SaveMember_btn" Content="Save" HorizontalAlignment="Left" Margin="499,104,0,0" VerticalAlignment="Top" Height="38" Width="127" Grid.Column="1"/>
+                    <Button x:Name="ClearMember_btn" Content="Clear" HorizontalAlignment="Left" Margin="651,104,0,0" VerticalAlignment="Top" Height="39" Width="109" Click="ClearAuthor_btn_Click" Grid.Column="1"/>
+                    <Label Content="First Name" HorizontalAlignment="Left" Margin="11,45,0,0" VerticalAlignment="Top" Height="22" Width="130" Grid.Column="1"/>
+                    <Label Content="Last Name" HorizontalAlignment="Left" Margin="11,82,0,0" VerticalAlignment="Top" Height="22" Width="130" Grid.Column="1"/>
+                    <DataGrid x:Name="Member_dtg" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="11,203,117,75" Grid.Column="1">
+                        <DataGrid.Columns>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="UpdateMember_btn" Content="Update" HorizontalAlignment="Left" Margin="465,350,0,0" VerticalAlignment="Top" Height="36" Width="106" Grid.Column="1" Click="UpdateMember_btn_Click"/>
+                    <Button x:Name="DeleteMember_btn" Content="Delete" HorizontalAlignment="Left" Margin="600,350,0,0" VerticalAlignment="Top" Height="36" Width="106" Grid.Column="1"/>
+                    <Label Content="Email" HorizontalAlignment="Left" Margin="11,113,0,0" VerticalAlignment="Top" Height="22" Width="130" Grid.Column="1"/>
+                    <Label Content="Phone" HorizontalAlignment="Left" Margin="11,140,0,0" VerticalAlignment="Top" Height="28" Width="130" Grid.Column="1"/>
+                    <TextBox x:Name="MemberEmail_txt" HorizontalAlignment="Left" Margin="189,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Height="22" Grid.Column="1"/>
+                    <TextBox x:Name="MemberPhone_txt" HorizontalAlignment="Left" Margin="189,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Height="22" Grid.Column="1"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

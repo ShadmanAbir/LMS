@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Data;
+using System.Net.Http;
 using System.Security.Policy;
 using System.Text;
 using System.Windows;
@@ -21,12 +22,16 @@ namespace LMS.DesktopClient
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int AuthorID;
+        private int _authorID = 0;
+        private int _bookID = 0;
+        private int _memberID = 0;
         private string Url = "https://localhost:7080/api/";
         public MainWindow()
         {
             InitializeComponent();
-            LoadDataAsync();
+            LoadAuthorDataAsync();
+            LoadBookDataAsync();
+            LoadMemberDataAsync();
         }
 
         private void Login_btn_Click_1(object sender, RoutedEventArgs e)
@@ -37,12 +42,12 @@ namespace LMS.DesktopClient
 
         private void ClearAuthor_btn_Click(object sender, RoutedEventArgs e)
         {
-            AuthorID = 0;
+            _authorID = 0;
             AuthorName_txt.Text = null;
             AuthorBio_txt.Text = null;
         }
 
-        private async void LoadDataAsync()
+        private async void LoadAuthorDataAsync()
         {
             try
             {
@@ -50,19 +55,12 @@ namespace LMS.DesktopClient
                 using (HttpClient client = new HttpClient())
                 {
                     
-                    // Send GET request
                     HttpResponseMessage response = await client.GetAsync(Url+"Author");
 
-                    // Check if request was successful
                     if (response.IsSuccessStatusCode)
                     {
-                        // Read response content
                         string data = await response.Content.ReadAsStringAsync();
-
-                        // Deserialize JSON response to a list of objects
                         List<AuthorsViewModel> dataList = JsonConvert.DeserializeObject<List<AuthorsViewModel>>(data);
-
-                        // Bind data to DataGrid
                         Author_dtg.ItemsSource = dataList;
                     }
                     else
@@ -76,5 +74,115 @@ namespace LMS.DesktopClient
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+        private async void LoadBookDataAsync()
+        {
+            try
+            {
+                // Initialize HttpClient
+                using (HttpClient client = new HttpClient())
+                {
+
+                    HttpResponseMessage response = await client.GetAsync(Url + "Book");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string data = await response.Content.ReadAsStringAsync();
+                        List<BooksViewModel> dataList = JsonConvert.DeserializeObject<List<BooksViewModel>>(data);
+                        Book_dtg.ItemsSource = dataList;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to retrieve data from the API.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+        private async void LoadMemberDataAsync()
+        {
+            try
+            {
+                // Initialize HttpClient
+                using (HttpClient client = new HttpClient())
+                {
+
+                    HttpResponseMessage response = await client.GetAsync(Url + "Member");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string data = await response.Content.ReadAsStringAsync();
+                        List<MembersViewModel> dataList = JsonConvert.DeserializeObject<List<MembersViewModel>>(data);
+                        Member_dtg.ItemsSource = dataList;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to retrieve data from the API.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void UpdateAuthor_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Author_dtg.SelectedItem != null)
+            {
+                var selectedValue = (AuthorsViewModel)Author_dtg.SelectedItem;
+                AuthorName_txt.Text = selectedValue.AuthorName;
+                AuthorBio_txt.Text = selectedValue.AuthorBio;
+                _authorID = selectedValue.AuthorID;
+            }
+            else
+            {
+                MessageBox.Show("Please select an item first.");
+            }
+        }
+
+        private void UpdateBook_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Book_dtg.SelectedItem != null)
+            {
+                var selectedValue = (BooksViewModel)Book_dtg.SelectedItem;
+                BookTitle_txt.Text = selectedValue.Title;
+                BookISBN_txt.Text = selectedValue.ISBN;
+                BookPublishDate_dp.SelectedDate = selectedValue.PublishedDate;
+                BookAuthor_cb.SelectedItem = selectedValue;
+                _bookID = selectedValue.BookID;
+            }
+            else
+            {
+                MessageBox.Show("Please select an item first.");
+            }
+        }
+
+        private void UpdateMember_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Member_dtg.SelectedItem != null)
+            {
+                var selectedValue = (MembersViewModel)Member_dtg.SelectedItem;
+                MemberFirstName_txt.Text = selectedValue.FirstName;
+                MemberLastName_txt.Text = selectedValue.LastName;
+                MemberEmail_txt.Text = selectedValue.Email;
+                MemberPhone_txt.Text = selectedValue.PhoneNumber;
+                _memberID = selectedValue.MemberID;
+            }
+            else
+            {
+                MessageBox.Show("Please select an item first.");
+            }
+        }
+
+        private void DeleteAuthor_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+       
     }
 }

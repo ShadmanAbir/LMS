@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Repo\LMS\LMS.DesktopClient\App.xaml
-11407045341
+22073988846
 
-6-1152299945
+7-1345811341
 249303292404
-MainWindow.xaml;
+Dashboard.xaml;MainWindow.xaml;
 
-False
+True
 

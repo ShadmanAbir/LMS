@@ -80,3 +80,5 @@ C:\Repo\LMS\LMS.DesktopClient\bin\Debug\net8.0-windows\LMS.Core.pdb
 C:\Repo\LMS\LMS.DesktopClient\bin\Debug\net8.0-windows\LMS.Domain.pdb
 C:\Repo\LMS\LMS.DesktopClient\obj\Debug\net8.0-windows\LMS.DesktopClient.csproj.AssemblyReference.cache
 C:\Repo\LMS\LMS.DesktopClient\obj\Debug\net8.0-windows\LMS.Desk.751FA586.Up2Date
+C:\Repo\LMS\LMS.DesktopClient\obj\Debug\net8.0-windows\Dashboard.g.cs
+C:\Repo\LMS\LMS.DesktopClient\obj\Debug\net8.0-windows\Dashboard.baml
