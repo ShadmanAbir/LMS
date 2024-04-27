@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LMS.WebClient.props" />
+</Project>

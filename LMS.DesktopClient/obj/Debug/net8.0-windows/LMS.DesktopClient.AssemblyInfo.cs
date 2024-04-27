@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LMS.DesktopClient")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+beed272b67db5f4c163c9d26cf511ba6c5d45c5b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+945bd75e41040f1a4f146301d8651414ebbeb12c")]
 [assembly: System.Reflection.AssemblyProductAttribute("LMS.DesktopClient")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LMS.DesktopClient")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMS.Core", "LMS.Core\LMS.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMS.DesktopClient", "LMS.DesktopClient\LMS.DesktopClient.csproj", "{FF523B1A-F7FF-410A-928A-CDB9CC6E87C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.WebClient", "LMS.WebClient\LMS.WebClient.csproj", "{5ABDE693-C7D3-469D-B7DC-B0BCB668B61E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FF523B1A-F7FF-410A-928A-CDB9CC6E87C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF523B1A-F7FF-410A-928A-CDB9CC6E87C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF523B1A-F7FF-410A-928A-CDB9CC6E87C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ABDE693-C7D3-469D-B7DC-B0BCB668B61E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ABDE693-C7D3-469D-B7DC-B0BCB668B61E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ABDE693-C7D3-469D-B7DC-B0BCB668B61E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ABDE693-C7D3-469D-B7DC-B0BCB668B61E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
