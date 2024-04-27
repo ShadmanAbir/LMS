@@ -236,5 +236,121 @@ namespace LMS.DesktopClient
                 }
             }
         }
+
+        private async void SaveBook_btn_Click(object sender, RoutedEventArgs e)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    var Bookdata = new BooksViewModel
+                    {
+                        Title = BookTitle_txt.Text,
+                        ISBN = BookISBN_txt.Text,
+                        PublishedDate = (DateTime)BookPublishDate_dp.SelectedDate,
+                        //AuthorID = BookAuthor_cb.Text
+                        BookID = _bookID,
+                        TotalCopies = 0,
+                        AvailableCopies = 0
+                    };
+
+                    string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(Bookdata);
+
+                    var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+
+                    if (_bookID == 0)
+                    {
+                        HttpResponseMessage response = await client.PostAsync(Url + "Book", content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            Console.WriteLine("PUT request successful");
+                            _bookID = 0;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Failed to send POST request. Status Code: {response.StatusCode}");
+                        }
+                    }
+                    else
+                    {
+                        HttpResponseMessage response = await client.PutAsync(Url + "Book", content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            Console.WriteLine("PUT request successful");
+                            _bookID = 0;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Failed to send PUT request. Status Code: {response.StatusCode}");
+                        }
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
+        }
+
+        private async void SaveMember_btn_Click(object sender, RoutedEventArgs e)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    var MemberData = new MembersViewModel
+                    {
+                       FirstName = MemberFirstName_txt.Text,
+                       LastName = MemberLastName_txt.Text,
+                       MemberID = _memberID,
+                       Email = MemberEmail_txt.Text,
+                       PhoneNumber = MemberPhone_txt.Text
+                    };
+
+                    string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(MemberData);
+
+                    var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+
+                    if (_memberID == 0)
+                    {
+                        HttpResponseMessage response = await client.PostAsync(Url + "Member", content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            Console.WriteLine("POST request successful");
+                            _memberID = 0;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Failed to send POST request. Status Code: {response.StatusCode}");
+                        }
+                    }
+                    else
+                    {
+                        HttpResponseMessage response = await client.PutAsync(Url + "Member", content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            Console.WriteLine("PUT request successful");
+                            _memberID = 0;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Failed to send PUT request. Status Code: {response.StatusCode}");
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
+        }
     }
 }
