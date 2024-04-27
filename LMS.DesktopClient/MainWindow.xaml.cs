@@ -208,7 +208,11 @@ namespace LMS.DesktopClient
 
                         if (response.IsSuccessStatusCode)
                         {
-                            Console.WriteLine("PUT request successful");
+                            MessageBox.Show("Data Saved Successfully");
+                            _authorID = 0;
+                            AuthorName_txt.Text = null;
+                            AuthorBio_txt.Text = null;
+                            LoadAuthorDataAsync();
                         }
                         else
                         {
@@ -221,14 +225,18 @@ namespace LMS.DesktopClient
 
                         if (response.IsSuccessStatusCode)
                         {
-                            Console.WriteLine("PUT request successful");
+                            MessageBox.Show("Data Saved Successfully");
+                            _authorID = 0;
+                            AuthorName_txt.Text = null;
+                            AuthorBio_txt.Text = null;
+                            LoadAuthorDataAsync();
                         }
                         else
                         {
                             Console.WriteLine($"Failed to send PUT request. Status Code: {response.StatusCode}");
                         }
                     }
-                    _authorID = 0;
+                    
                 }
                 catch (Exception ex)
                 {
@@ -265,8 +273,11 @@ namespace LMS.DesktopClient
 
                         if (response.IsSuccessStatusCode)
                         {
-                            Console.WriteLine("PUT request successful");
+                            MessageBox.Show("PUT request successful");
                             _bookID = 0;
+                            BookTitle_txt.Text = null;
+                            BookISBN_txt.Text = null;
+                            BookPublishDate_dp.SelectedDate = null;
                         }
                         else
                         {
@@ -279,7 +290,7 @@ namespace LMS.DesktopClient
 
                         if (response.IsSuccessStatusCode)
                         {
-                            Console.WriteLine("PUT request successful");
+                            MessageBox.Show("PUT request successful");
                             _bookID = 0;
                         }
                         else
@@ -322,7 +333,7 @@ namespace LMS.DesktopClient
 
                         if (response.IsSuccessStatusCode)
                         {
-                            Console.WriteLine("POST request successful");
+                            MessageBox.Show("POST request successful");
                             _memberID = 0;
                         }
                         else
@@ -336,7 +347,7 @@ namespace LMS.DesktopClient
 
                         if (response.IsSuccessStatusCode)
                         {
-                            Console.WriteLine("PUT request successful");
+                            MessageBox.Show("PUT request successful");
                             _memberID = 0;
                         }
                         else
