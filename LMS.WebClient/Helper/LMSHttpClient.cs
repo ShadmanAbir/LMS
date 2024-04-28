@@ -10,7 +10,7 @@ namespace LMS.WebClient.Helper
     public class LMSHttpClient
     {
         private readonly HttpClient _httpClient;
-        private readonly string api_Url = "https://localhost:7080/api/";
+        private readonly string api_Url = "https://localhost:7080/api/"; //API URL goes Here
 
         public LMSHttpClient(HttpClient httpClient)
         {

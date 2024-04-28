@@ -26,7 +26,7 @@ namespace LMS.DesktopClient
         private int _authorID = 0;
         private int _bookID = 0;
         private int _memberID = 0;
-        private string Url = "https://localhost:7080/api/";
+        private string Url = "https://localhost:7080/api/"; //API URL goes here
         public MainWindow()
         {
             InitializeComponent();
